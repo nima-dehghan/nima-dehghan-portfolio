@@ -20,8 +20,6 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
     if (!ctx) return;
 
     const frames: (HTMLImageElement | undefined)[] = new Array(FRAME_COUNT);
-    const paletteFrames: (HTMLCanvasElement | undefined)[] = new Array(FRAME_COUNT);
-    const paletteCacheOrder: number[] = [];
     let nativeW = 1280;
     let nativeH = 720;
     let current = 0;
@@ -58,36 +56,6 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
       return -1;
     };
 
-    const paletteFrame = (index: number, image: HTMLImageElement) => {
-      const cached = paletteFrames[index];
-      if (cached) return cached;
-
-      const frame = document.createElement("canvas");
-      frame.width = image.naturalWidth;
-      frame.height = image.naturalHeight;
-      const frameContext = frame.getContext("2d", { willReadFrequently: true });
-      if (!frameContext) return frame;
-
-      frameContext.drawImage(image, 0, 0);
-      const pixels = frameContext.getImageData(0, 0, frame.width, frame.height);
-      for (let pixel = 0; pixel < pixels.data.length; pixel += 4) {
-        const brightness = pixels.data[pixel] * 0.299 + pixels.data[pixel + 1] * 0.587 + pixels.data[pixel + 2] * 0.114;
-        const color = brightness < 24 ? 0 : brightness < 86 ? 1 : brightness < 178 ? 2 : 3;
-        pixels.data[pixel] = color === 3 ? 255 : 0;
-        pixels.data[pixel + 1] = color === 3 ? 255 : color === 2 ? 217 : color === 1 ? 168 : 0;
-        pixels.data[pixel + 2] = color === 0 ? 0 : 255;
-        pixels.data[pixel + 3] = 255;
-      }
-      frameContext.putImageData(pixels, 0, 0);
-      paletteFrames[index] = frame;
-      paletteCacheOrder.push(index);
-      if (paletteCacheOrder.length > 20) {
-        const expiredIndex = paletteCacheOrder.shift();
-        if (expiredIndex !== undefined) paletteFrames[expiredIndex] = undefined;
-      }
-      return frame;
-    };
-
     const paint = (index: number, force = false) => {
       const frameIndex = nearestLoaded(Math.round(index));
       if (frameIndex < 0) return;
@@ -96,7 +64,6 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
 
       const image = frames[frameIndex];
       if (!image) return;
-      const img = paletteFrame(frameIndex, image);
 
       const dstW = canvas.clientWidth;
       const dstH = canvas.clientHeight;
@@ -104,12 +71,14 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
 
       ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, dstW, dstH);
-      ctx.imageSmoothingEnabled = false;
-      ctx.drawImage(img, r.x, r.y, r.w, r.h);
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(image, r.x, r.y, r.w, r.h);
     };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const maxDpr = window.matchMedia("(max-width: 767px)").matches ? 1.5 : 2;
+      const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
       const w = canvas.clientWidth;
       const h = canvas.clientHeight;
       canvas.width = Math.max(1, Math.round(w * dpr));
@@ -216,11 +185,6 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
           height={720}
           aria-hidden
         />
-        <div
-          className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.68)_38%,rgba(0,0,0,0.24)_68%,rgba(0,0,0,0.58)_100%)]"
-          aria-hidden
-        />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_68%_42%,rgba(0,168,255,0.12),transparent_48%)]" aria-hidden />
       </div>
       <div className="relative z-10 -mt-[100dvh]">{children}</div>
     </div>

@@ -1,5 +1,69 @@
-import { ArrowDown, ArrowUpRight, ScanEye } from "lucide-react";
+import {
+  Activity,
+  ArrowDown,
+  ArrowUpRight,
+  Code2,
+  Database,
+  Layers3,
+  Radio,
+  ScanEye,
+  ShieldCheck,
+} from "lucide-react";
 import type { Language } from "@/components/portfolio-experience";
+
+const backendGroupIcons = [Code2, Layers3, Database, ShieldCheck, Radio, Activity];
+
+const socialLinks = [
+  { name: "Instagram", href: "https://www.instagram.com/your-handle/" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/your-profile/" },
+  { name: "YouTube", href: "https://www.youtube.com/@your-channel" },
+  { name: "Threads", href: "https://www.threads.net/@your-handle" },
+] as const;
+
+type SocialPlatform = "Instagram" | "LinkedIn" | "YouTube" | "Threads" | "X";
+
+function SocialIcon({ platform }: { platform: SocialPlatform }) {
+  if (platform === "X") {
+    return (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.9 1.15h3.68l-8.04 9.2L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93ZM17.61 20.58h2.04L6.47 3.3H4.28Z" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (platform === "Instagram") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+        <circle cx="17.5" cy="6.7" r="1" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (platform === "LinkedIn") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M5 9v10M5 5v.01M10 19v-6a4 4 0 0 1 8 0v6M10 10v9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+    );
+  }
+
+  if (platform === "YouTube") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M21 8.2a2.5 2.5 0 0 0-1.75-1.76C17.7 6 12 6 12 6s-5.7 0-7.25.44A2.5 2.5 0 0 0 3 8.2 26 26 0 0 0 2.6 12a26 26 0 0 0 .4 3.8 2.5 2.5 0 0 0 1.75 1.76C6.3 18 12 18 12 18s5.7 0 7.25-.44A2.5 2.5 0 0 0 21 15.8a26 26 0 0 0 .4-3.8 26 26 0 0 0-.4-3.8Z" stroke="currentColor" strokeWidth="1.7" />
+        <path d="m10 9.5 5 2.5-5 2.5z" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3.5c-4.5 0-7.4 3.1-7.4 8.1 0 5.2 2.7 8.9 7.3 8.9 3.2 0 5.2-1.8 5.2-4.4 0-2.5-1.8-4.2-4.4-4.2-1.9 0-3.2 1.1-3.2 2.7 0 1.3.9 2.2 2.2 2.2 1.1 0 1.8-.7 1.8-1.8 0-2.5-2.2-4.3-5.1-4.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
 
 const backendGroups = {
   en: [
@@ -72,6 +136,11 @@ export function LandingSections({ language }: { language: Language }) {
         closingCopy: "تمرکز من میان پژوهش در بینایی ماشین و ساخت بک‌اند حرفه‌ای با .NET قرار دارد؛ با دقت، تعهد و توجه به کیفیت اجرا.",
         footer: "نیما دهقان · پژوهشگر بینایی ماشین و توسعه‌دهندهٔ بک‌اند .NET",
         technology: "فناوری‌ها",
+        contactIndex: "۰۵ / ارتباط",
+        contactTitle: "در ارتباط باشیم",
+        contactIntro: "برای گفت‌وگو دربارهٔ پژوهش، بینایی ماشین، رباتیک و مهندسی نرم‌افزار.",
+        contactNote: "پیوندهای شبکه‌های اجتماعی موقت هستند و بعداً به‌روزرسانی می‌شوند.",
+        socialAction: "باز کردن",
       }
     : {
         role: "Computer Vision Researcher · .NET Backend Developer",
@@ -116,6 +185,11 @@ export function LandingSections({ language }: { language: Language }) {
         closingCopy: "My focus connects Computer Vision research with a professional .NET backend career, guided by responsibility, care, and attention to implementation quality.",
         footer: "Nima Dehghan · Computer Vision Researcher & .NET Backend Developer",
         technology: "TECHNOLOGIES",
+        contactIndex: "05 / CONNECT",
+        contactTitle: "Let’s connect",
+        contactIntro: "For conversations about research, computer vision, robotics, and software engineering.",
+        contactNote: "Social links are temporary placeholders and will be updated.",
+        socialAction: "Visit",
       };
 
   return (
@@ -124,7 +198,7 @@ export function LandingSections({ language }: { language: Language }) {
         <div className="hero-copy">
           <span className="eyebrow">{copy.role}</span>
           <h1 className="hero-name">
-            {isPersian ? copy.heading : <>Nima Dehghan <span className="hero-persian" lang="fa" dir="rtl">نیما دهقان</span></>}
+            {copy.heading}
           </h1>
           <p className="hero-title">{isPersian ? "پژوهشگر بینایی ماشین" : "Computer Vision Researcher"}</p>
           <p className="hero-summary">{copy.summary}</p>
@@ -183,7 +257,13 @@ export function LandingSections({ language }: { language: Language }) {
         <div className="skill-groups">
           {backendGroups[language].map((group, index) => (
             <details className="skill-group" key={group.title} open={index === 0}>
-              <summary>{group.title}</summary>
+              <summary>
+                {(() => {
+                  const Icon = backendGroupIcons[index];
+                  return Icon ? <Icon size={16} aria-hidden="true" /> : null;
+                })()}
+                <span>{group.title}</span>
+              </summary>
               <div className="tech-list">
                 {group.skills.map((skill) => <span className="tech-chip" key={skill}>{skill}</span>)}
               </div>
@@ -247,6 +327,43 @@ export function LandingSections({ language }: { language: Language }) {
           <p>{copy.closingCopy}</p>
         </div>
         <a className="action-primary" href="#top">{isPersian ? "بازگشت به بالا" : "Back to top"}<ArrowUpRight size={16} /></a>
+      </section>
+      <section id="contact" className="content-section contact-section">
+        <div className="section-heading">
+          <div>
+            <span className="section-index">{copy.contactIndex}</span>
+            <h2 className="section-title">{copy.contactTitle}</h2>
+          </div>
+          <p className="section-intro">{copy.contactIntro}</p>
+        </div>
+        <div className="social-grid">
+          {socialLinks.map(({ name, href }) => (
+            <a
+              className="social-link"
+              href={href}
+              key={name}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${name} — ${copy.socialAction}`}
+            >
+              <SocialIcon platform={name} />
+              <span>{name}</span>
+              <ArrowUpRight className="social-arrow" size={16} aria-hidden="true" />
+            </a>
+          ))}
+          <a
+            className="social-link"
+            href="https://x.com/your-handle"
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`X — ${copy.socialAction}`}
+          >
+            <SocialIcon platform="X" />
+            <span>X</span>
+            <ArrowUpRight className="social-arrow" size={16} aria-hidden="true" />
+          </a>
+        </div>
+        <p className="contact-note">{copy.contactNote}</p>
       </section>
       <footer className="site-footer"><span>{copy.footer}</span><span>© {new Date().getFullYear()}</span></footer>
     </main>

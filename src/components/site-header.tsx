@@ -7,12 +7,14 @@ const navigation = {
     { href: "#backend", label: ".NET Backend" },
     { href: "#systems", label: "Implementation" },
     { href: "#skills", label: "Skills" },
+    { href: "#contact", label: "Connect" },
   ],
   fa: [
     { href: "#research", label: "پژوهش" },
     { href: "#backend", label: "بک‌اند دات‌نت" },
     { href: "#systems", label: "پیاده‌سازی" },
     { href: "#skills", label: "مهارت‌ها" },
+    { href: "#contact", label: "ارتباط" },
   ],
 };
 
@@ -44,9 +46,9 @@ export function SiteHeader({
           className="language-switch"
           type="button"
           onClick={onToggleLanguage}
-          aria-label={isPersian ? "Switch to English" : "تغییر زبان به فارسی"}
+          aria-label={isPersian ? "تغییر زبان به انگلیسی" : "Switch to Persian"}
         >
-          EN <span aria-hidden="true">↔</span> فارسی
+          {isPersian ? "EN" : "FA"}
         </button>
       </div>
     </header>

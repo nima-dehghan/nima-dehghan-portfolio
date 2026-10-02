@@ -3,17 +3,19 @@ import type { Language } from "@/components/portfolio-experience";
 
 const navigation = {
   en: [
-    { href: "#research", label: "Research" },
     { href: "#backend", label: ".NET Backend" },
-    { href: "#systems", label: "Implementation" },
-    { href: "#skills", label: "Skills" },
+    { href: "#frontend", label: "Web Frontend" },
+    { href: "#mobile", label: "Mobile" },
+    { href: "#research", label: "Research" },
+    { href: "#interests", label: "Interests" },
     { href: "#contact", label: "Connect" },
   ],
   fa: [
-    { href: "#research", label: "پژوهش" },
     { href: "#backend", label: "بک‌اند دات‌نت" },
-    { href: "#systems", label: "پیاده‌سازی" },
-    { href: "#skills", label: "مهارت‌ها" },
+    { href: "#frontend", label: "فرانت‌اند وب" },
+    { href: "#mobile", label: "موبایل" },
+    { href: "#research", label: "پژوهش" },
+    { href: "#interests", label: "علاقه‌مندی‌ها" },
     { href: "#contact", label: "ارتباط" },
   ],
 };
@@ -34,7 +36,7 @@ export function SiteHeader({
           <span className="wordmark-mark"><ScanFace size={19} strokeWidth={1.7} /></span>
           <span>
             <span className="wordmark-name">Nima Dehghan</span>
-            <span className="wordmark-role">{isPersian ? "بینایی ماشین · دات‌نت" : "Computer Vision · .NET"}</span>
+            <span className="wordmark-role">{isPersian ? "بک‌اند .NET · بینایی ماشین" : ".NET Backend · Computer Vision"}</span>
           </span>
         </a>
         <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>

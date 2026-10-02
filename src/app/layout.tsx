@@ -14,21 +14,31 @@ const geistMono = Geist_Mono({
 });
 
 const vazirmatn = localFont({
-  src: "../../public/fonts/Vazirmatn-Regular.ttf",
+  src: [
+    { path: "../../public/fonts/Vazirmatn-Thin.ttf", weight: "100" },
+    { path: "../../public/fonts/Vazirmatn-ExtraLight.ttf", weight: "200" },
+    { path: "../../public/fonts/Vazirmatn-Light.ttf", weight: "300" },
+    { path: "../../public/fonts/Vazirmatn-Regular.ttf", weight: "400" },
+    { path: "../../public/fonts/Vazirmatn-Medium.ttf", weight: "500" },
+    { path: "../../public/fonts/Vazirmatn-SemiBold.ttf", weight: "600" },
+    { path: "../../public/fonts/Vazirmatn-Bold.ttf", weight: "700" },
+    { path: "../../public/fonts/Vazirmatn-ExtraBold.ttf", weight: "800" },
+    { path: "../../public/fonts/Vazirmatn-Black.ttf", weight: "900" },
+  ],
   variable: "--font-vazirmatn",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Nima Dehghan | Computer Vision Researcher & .NET Developer",
+  title: "Nima Dehghan | .NET Backend Developer",
   description:
-    "Computer Vision research and .NET backend development by Nima Dehghan.",
+    ".NET backend development with C# and ASP.NET Core by Nima Dehghan, with complementary Computer Vision research.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" dir="ltr" className={`${geistSans.variable} ${geistMono.variable} ${vazirmatn.variable} h-full antialiased`}>
-      <body className="min-h-full bg-black font-sans text-white">{children}</body>
+      <body className="min-h-full font-sans text-white">{children}</body>
     </html>
   );
 }

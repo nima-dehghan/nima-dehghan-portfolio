@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #06090f;
-  --foreground: #f5f7fa;
+  --background: #12243a;
+  --surface: rgba(26, 50, 80, 0.86);
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --foreground: #f7f9fc;
   --blue: #38a6ff;
   --cyan: #38a6ff;
   --line: rgba(255, 255, 255, 0.14);
-  --muted: rgba(245, 247, 250, 0.68);
+  --muted: rgba(247, 249, 252, 0.72);
 }
 
 @theme inline {
@@ -29,7 +31,7 @@ body {
 }
 
 ::selection {
-  background: rgba(0, 217, 255, 0.38);
+  background: rgba(56, 166, 255, 0.38);
   color: var(--foreground);
 }
 
@@ -60,8 +62,8 @@ summary:focus-visible {
   position: fixed;
   z-index: 50;
   inset: 0 0 auto;
-  border-bottom: 1px solid rgba(0, 168, 255, 0.18);
-  background: #04060a;
+  border-bottom: 1px solid var(--surface-border);
+  background: var(--surface);
 }
 .header-inner {
   display: flex;
@@ -120,7 +122,7 @@ summary:focus-visible {
   min-height: 38px;
   padding: 0.45rem 0.85rem;
   border: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.64);
+  background: rgba(26, 50, 80, 0.72);
   color: var(--foreground);
   cursor: pointer;
   font-size: 0.75rem;
@@ -138,10 +140,17 @@ summary:focus-visible {
   min-height: 100svh;
   align-items: center;
   padding: 9rem var(--page-gutter) 4rem;
+  position: relative;
+  isolation: isolate;
 }
 .hero-copy {
+  position: relative;
   width: min(100%, 720px);
   margin-inline-start: max(0px, calc((100vw - 1440px) / 2));
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  background: var(--surface);
   animation: reveal-in 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 .eyebrow {
@@ -178,7 +187,7 @@ summary:focus-visible {
 .hero-title {
   max-width: 640px;
   margin: 1.4rem 0 0;
-  color: var(--blue);
+  color: var(--foreground);
   font-size: 1.6rem;
   font-weight: 550;
   line-height: 1.35;
@@ -239,8 +248,9 @@ summary:focus-visible {
   width: min(100% - 2 * var(--page-gutter), 1280px);
   margin-inline: auto;
   padding-block: clamp(5.5rem, 11vw, 10rem);
-  border-top: 1px solid var(--line);
-  background-color: rgba(0, 0, 0, 0.82);
+  border: 1px solid var(--surface-border);
+  border-radius: 18px;
+  background-color: var(--surface);
 }
 .section-heading {
   display: grid;
@@ -330,21 +340,18 @@ summary:focus-visible {
   color: var(--foreground);
 }
 .backend-section {
-  border-top-color: rgba(0, 217, 255, 0.45);
+  border-top-color: var(--surface-border);
 }
 .backend-section .section-title {
-  color: var(--cyan);
+  color: var(--foreground);
 }
 .backend-core {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
   gap: 2rem;
   padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid var(--blue);
-  background: rgba(0, 168, 255, 0.07);
-  box-shadow:
-    0 0 48px rgba(0, 168, 255, 0.08),
-    inset 0 0 32px rgba(0, 217, 255, 0.025);
+  border: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.035);
 }
 .backend-core h3 {
   margin: 0;
@@ -365,8 +372,12 @@ summary:focus-visible {
   gap: 0.65rem;
 }
 .tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   padding: 0.55rem 0.75rem;
-  border: 1px solid rgba(0, 217, 255, 0.4);
+  border: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.035);
   color: var(--foreground);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.7rem;
@@ -406,9 +417,7 @@ summary:focus-visible {
   padding: 0 0 1.2rem;
 }
 .implementation-section {
-  background:
-    linear-gradient(180deg, rgba(0, 168, 255, 0.035), transparent 62%),
-    rgba(0, 0, 0, 0.82);
+  background-color: var(--surface);
 }
 .implementation-item {
   min-height: 240px;
@@ -474,11 +483,39 @@ summary:focus-visible {
   gap: 1rem;
   margin-inline: auto;
   border-top: 1px solid var(--line);
+  background: var(--surface);
   color: var(--muted);
   font-size: 0.7rem;
 }
 [dir="rtl"] body {
-  font-family: "Segoe UI", Tahoma, var(--font-geist-sans), sans-serif;
+  font-family: var(--font-vazirmatn), sans-serif;
+}
+
+[dir="rtl"] .portfolio-shell,
+[dir="rtl"] .portfolio-shell * {
+  font-family: var(--font-vazirmatn), sans-serif;
+}
+
+[dir="rtl"] .portfolio-header,
+[dir="rtl"] .primary-nav,
+[dir="rtl"] .language-switch,
+[dir="rtl"] .action-primary,
+[dir="rtl"] .tech-chip,
+[dir="rtl"] .skill-group summary {
+  font-weight: 600;
+}
+
+[dir="rtl"] .hero-name,
+[dir="rtl"] .section-title,
+[dir="rtl"] .closing-section h2 {
+  font-weight: 800;
+}
+
+[dir="rtl"] .hero-title,
+[dir="rtl"] .item-title,
+[dir="rtl"] .support-section h2,
+[dir="rtl"] .backend-core h3 {
+  font-weight: 700;
 }
 [dir="rtl"] .eyebrow,
 [dir="rtl"] .hero-readout,
@@ -511,9 +548,8 @@ body {
 }
 
 .portfolio-header {
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  background: rgba(6, 9, 15, 0.9);
-  backdrop-filter: blur(16px);
+  border-bottom-color: var(--surface-border);
+  background: var(--surface);
 }
 
 .header-inner {
@@ -542,27 +578,10 @@ body {
   min-height: 100svh;
   padding-top: max(8rem, 15svh);
   padding-bottom: clamp(3rem, 8svh, 6rem);
-  position: relative;
-  isolation: isolate;
-}
-
-.hero-section::before {
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(6, 9, 15, 0.96) 0%,
-    rgba(6, 9, 15, 0.82) 42%,
-    rgba(6, 9, 15, 0.3) 100%
-  );
-  content: "";
 }
 
 .hero-copy {
-  position: relative;
   width: min(100%, 680px);
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.6);
 }
 
 .hero-name {
@@ -599,9 +618,8 @@ body {
 .content-section {
   width: min(100% - 2 * var(--page-gutter), 1280px);
   padding: clamp(3.5rem, 8vw, 7rem) clamp(1.15rem, 4vw, 3.5rem);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 18px;
-  background-color: rgba(6, 9, 15, 0.94);
+  border-color: var(--surface-border);
+  background-color: var(--surface);
   text-shadow: none;
 }
 
@@ -651,7 +669,7 @@ body {
 }
 
 .backend-section {
-  border-top-color: rgba(255, 255, 255, 0.1);
+  border-top-color: var(--surface-border);
 }
 
 .backend-section .section-title {
@@ -659,8 +677,8 @@ body {
 }
 
 .backend-core {
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--surface-border);
+  background: rgba(255, 255, 255, 0.035);
   box-shadow: none;
 }
 
@@ -669,8 +687,8 @@ body {
   align-items: center;
   gap: 0.45rem;
   padding: 0.55rem 0.8rem;
-  border-color: rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.025);
+  border-color: var(--surface-border);
+  background: rgba(255, 255, 255, 0.035);
   font-size: 0.72rem;
 }
 
@@ -688,7 +706,7 @@ body {
 .skill-group summary {
   justify-content: flex-start;
   border-radius: 10px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--foreground);
 }
 
 .skill-group summary > svg {
@@ -701,11 +719,11 @@ body {
 }
 
 .implementation-section {
-  background: transparent;
+  background-color: var(--surface);
 }
 
 .support-section {
-  border-top-color: rgba(0, 168, 255, 0.24);
+  border-top-color: var(--surface-border);
 }
 
 .closing-section {
@@ -733,7 +751,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.9rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.11);
+  border: 1px solid var(--surface-border);
   border-radius: 14px;
   background: transparent;
   color: var(--foreground);
@@ -774,6 +792,10 @@ body {
   margin: 1rem 0 0;
   color: var(--muted);
   font-size: 0.72rem;
+}
+
+.contact-back-to-top {
+  margin-block-start: 1.25rem;
 }
 
 .site-footer {
@@ -875,19 +897,10 @@ body {
     padding: 9rem var(--page-gutter) 2.5rem;
   }
 
-  .hero-section::before {
-    background: linear-gradient(
-      180deg,
-      rgba(6, 9, 15, 0.42) 0%,
-      rgba(6, 9, 15, 0.56) 38%,
-      rgba(6, 9, 15, 0.97) 74%,
-      #06090f 100%
-    );
-  }
-
   .hero-copy {
     width: 100%;
     margin-inline-start: 0;
+    padding: 1.5rem 1.25rem;
   }
 
   .hero-name {
@@ -1077,13 +1090,144 @@ body {
   background: var(--background);
 }
 
-.portfolio-canvas {
-  opacity: 0.62;
-  filter: grayscale(0.8) saturate(0.55) brightness(1.28) contrast(0.94) blur(0.35px);
+.portfolio-sequence canvas {
+  filter: grayscale(1) brightness(0.5);
+}
+
+main > .content-section {
+  margin-block-start: clamp(0.75rem, 1.35vw, 1.1rem);
+}
+
+.backend-section {
+  border-color: rgba(56, 166, 255, 0.3);
+  box-shadow: 0 0 32px rgba(56, 166, 255, 0.06);
+}
+
+.backend-section .section-title {
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+}
+
+.backend-section .section-heading {
+  margin-bottom: 2rem;
+}
+
+.backend-section .skill-groups {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0;
+}
+
+.backend-skill-group,
+.interest-group {
+  min-width: 0;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.backend-skill-group h3,
+.interest-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.backend-skill-group h3 svg {
+  flex: 0 0 auto;
+  color: var(--blue);
+}
+
+.backend-skill-group .tech-list {
+  gap: 0.5rem;
+}
+
+.implementation-subsection {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--surface-border);
+}
+
+.implementation-subsection .section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.implementation-subsection .section-title {
+  font-size: clamp(1.7rem, 3.8vw, 2.6rem);
+}
+
+.research-section {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.research-section .section-heading {
+  margin-bottom: 1.5rem;
+}
+
+.research-section .section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+}
+
+.research-section .section-title svg {
+  flex: 0 0 auto;
+  color: var(--blue);
+}
+
+.research-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 2rem;
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.75;
+}
+
+.research-points li::marker {
+  color: var(--blue);
+}
+
+.interests-section {
+  opacity: 0.92;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.interest-group h3 {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.site-footer {
+  margin-block: 1.25rem;
+  padding-inline: clamp(1rem, 4vw, 2.5rem);
+  border: 1px solid var(--surface-border);
+  border-radius: 14px;
 }
 
 @media (max-width: 680px) {
-  .portfolio-canvas {
-    opacity: 0.52;
+  .backend-section .skill-groups,
+  .research-points,
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .backend-section .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .site-footer {
+    margin-block: 1rem;
   }
 }

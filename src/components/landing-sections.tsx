@@ -2,16 +2,124 @@ import {
   Activity,
   ArrowDown,
   ArrowUpRight,
+  BrainCircuit,
+  Braces,
   Code2,
   Database,
+  FileCode2,
+  Image,
   Layers3,
+  LockKeyhole,
   Radio,
-  ScanEye,
   ShieldCheck,
+  Timer,
+  Video,
+  type LucideIcon,
+  ScanEye,
 } from "lucide-react";
+import {
+  siBaseui,
+  siBlender,
+  siDart,
+  siDotnet,
+  siFlutter,
+  siJsonwebtokens,
+  siLucide,
+  siNextdotjs,
+  siPython,
+  siReact,
+  siReacthookform,
+  siReactquery,
+  siRedis,
+  siShadcnui,
+  siSwagger,
+  siTailwindcss,
+  siTypescript,
+  siUnity,
+  siZod,
+  type SimpleIcon,
+} from "simple-icons";
 import type { Language } from "@/components/portfolio-experience";
 
 const backendGroupIcons = [Code2, Layers3, Database, ShieldCheck, Radio, Activity];
+
+const technologyLogos: Record<string, SimpleIcon> = {
+  "C#": siDotnet,
+  ".NET 10": siDotnet,
+  "ASP.NET Core Web API": siDotnet,
+  "Entity Framework Core 10": siDotnet,
+  "ASP.NET Core Identity": siDotnet,
+  "EF Core Migrations": siDotnet,
+  Swagger: siSwagger,
+  Redis: siRedis,
+  JWT: siJsonwebtokens,
+  "Next.js 16": siNextdotjs,
+  "React 19": siReact,
+  TypeScript: siTypescript,
+  "Tailwind CSS": siTailwindcss,
+  "shadcn/ui": siShadcnui,
+  "Base UI": siBaseui,
+  "TanStack Query": siReactquery,
+  "React Hook Form": siReacthookform,
+  Zod: siZod,
+  "next-intl": siNextdotjs,
+  "Lucide React": siLucide,
+  Flutter: siFlutter,
+  Dart: siDart,
+  Unity: siUnity,
+  Blender: siBlender,
+  Python: siPython,
+};
+
+const technologyConceptIcons: Record<string, LucideIcon> = {
+  "RESTful APIs": Code2,
+  "Protected REST APIs": LockKeyhole,
+  "Clean Architecture": Layers3,
+  FluentValidation: ShieldCheck,
+  "SQL Server": Database,
+  "Hangfire Storage": Timer,
+  Hangfire: Timer,
+  "Background Jobs": Timer,
+  "Scheduled Jobs": Timer,
+  SignalR: Radio,
+  "Real-Time Notifications": Radio,
+  "Real-Time Support Chat": Radio,
+  Serilog: FileCode2,
+  Photoshop: Image,
+  CapCut: Video,
+  "Image editing": Image,
+  "AI tools": BrainCircuit,
+};
+
+function TechnologyIcon({ technology }: { technology: string }) {
+  const normalizedTechnology = technology.split(" · ")[0];
+  const logo = technologyLogos[normalizedTechnology];
+
+  if (logo) {
+    return (
+      <svg
+        className="tech-chip-icon"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d={logo.path} />
+      </svg>
+    );
+  }
+
+  const Icon = technologyConceptIcons[normalizedTechnology] ?? Braces;
+  return <Icon className="tech-chip-icon" aria-hidden="true" />;
+}
+
+function TechChip({ skill }: { skill: string }) {
+  return (
+    <span className="tech-chip">
+      <TechnologyIcon technology={skill} />
+      <span>{skill}</span>
+    </span>
+  );
+}
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/your-handle/" },
@@ -251,7 +359,7 @@ export function LandingSections({ language }: { language: Language }) {
             <p>{copy.coreCopy}</p>
           </div>
           <div className="tech-list">
-            {["C#", ".NET 10", "ASP.NET Core Web API", "Entity Framework Core 10", "SQL Server"].map((skill) => <span className="tech-chip" key={skill}>{skill}</span>)}
+            {["C#", ".NET 10", "ASP.NET Core Web API", "Entity Framework Core 10", "SQL Server"].map((skill) => <TechChip key={skill} skill={skill} />)}
           </div>
         </div>
         <div className="skill-groups">
@@ -265,7 +373,7 @@ export function LandingSections({ language }: { language: Language }) {
                 <span>{group.title}</span>
               </summary>
               <div className="tech-list">
-                {group.skills.map((skill) => <span className="tech-chip" key={skill}>{skill}</span>)}
+                {group.skills.map((skill) => <TechChip key={skill} skill={skill} />)}
               </div>
             </details>
           ))}
@@ -300,14 +408,14 @@ export function LandingSections({ language }: { language: Language }) {
             <p>{copy.frontendCopy}</p>
             <details className="skill-group">
               <summary>{isPersian ? "نمایش فناوری‌های فرانت‌اند" : "Show frontend technologies"}</summary>
-              <div className="tech-list">{frontendSkills.map((skill) => <span className="tech-chip" key={skill}>{skill}</span>)}</div>
+              <div className="tech-list">{frontendSkills.map((skill) => <TechChip key={skill} skill={skill} />)}</div>
             </details>
           </section>
           <section className="support-section mobile-section">
             <span className="eyebrow">{isPersian ? "توسعهٔ تکمیلی" : "ADDITIONAL DEVELOPMENT"}</span>
             <h2>{copy.mobileTitle}</h2>
             <p>{copy.mobileCopy}</p>
-            <div className="tech-list"><span className="tech-chip">Flutter</span><span className="tech-chip">Dart</span></div>
+            <div className="tech-list"><TechChip skill="Flutter" /><TechChip skill="Dart" /></div>
           </section>
         </div>
         <section className="support-section creative-section">
@@ -315,7 +423,7 @@ export function LandingSections({ language }: { language: Language }) {
           <p>{copy.creativeCopy}</p>
           <details className="skill-group">
             <summary>{isPersian ? "نمایش مهارت‌های تکمیلی" : "Show additional skills"}</summary>
-            <div className="tech-list">{creativeSkills[language].map((skill) => <span className="tech-chip" key={skill}>{skill}</span>)}</div>
+            <div className="tech-list">{creativeSkills[language].map((skill) => <TechChip key={skill} skill={skill} />)}</div>
           </details>
         </section>
       </section>

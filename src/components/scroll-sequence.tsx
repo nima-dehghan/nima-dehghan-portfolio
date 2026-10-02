@@ -176,11 +176,11 @@ export function ScrollSequence({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div ref={rootRef} className="relative">
+    <div ref={rootRef} className="portfolio-sequence relative">
       <div className="sticky top-0 z-0 h-dvh overflow-hidden bg-black">
         <canvas
           ref={canvasRef}
-          className="block h-full w-full"
+          className="portfolio-canvas block h-full w-full"
           width={1280}
           height={720}
           aria-hidden

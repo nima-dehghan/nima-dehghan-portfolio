@@ -1,42 +1,53 @@
-import { Shield } from "lucide-react";
+import { ScanFace } from "lucide-react";
+import type { Language } from "@/components/portfolio-experience";
 
-const links = [
-  { href: "#servers", label: "Servers" },
-  { href: "#features", label: "Features" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#support", label: "Support" },
-];
+const navigation = {
+  en: [
+    { href: "#research", label: "Research" },
+    { href: "#backend", label: ".NET Backend" },
+    { href: "#systems", label: "Implementation" },
+    { href: "#skills", label: "Skills" },
+  ],
+  fa: [
+    { href: "#research", label: "پژوهش" },
+    { href: "#backend", label: "بک‌اند دات‌نت" },
+    { href: "#systems", label: "پیاده‌سازی" },
+    { href: "#skills", label: "مهارت‌ها" },
+  ],
+};
 
-export function SiteHeader() {
+export function SiteHeader({
+  language,
+  onToggleLanguage,
+}: {
+  language: Language;
+  onToggleLanguage: () => void;
+}) {
+  const isPersian = language === "fa";
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-18 sm:px-8">
-        <a href="#top" className="flex items-center gap-2.5 text-white">
-          <span className="flex size-8 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/15">
-            <Shield className="size-4 text-cyan-300" strokeWidth={1.75} />
-          </span>
-          <span className="text-sm font-semibold tracking-tight">
-            CyberSafe
+    <header className="portfolio-header">
+      <div className="header-inner">
+        <a href="#top" className="wordmark" aria-label={isPersian ? "نیما دهقان، خانه" : "Nima Dehghan, home"}>
+          <span className="wordmark-mark"><ScanFace size={19} strokeWidth={1.7} /></span>
+          <span>
+            <span className="wordmark-name">Nima Dehghan</span>
+            <span className="wordmark-role">{isPersian ? "بینایی ماشین · دات‌نت" : "Computer Vision · .NET"}</span>
           </span>
         </a>
-        <nav className="hidden items-center gap-8 text-[13px] text-white/70 md:flex">
-          {links.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
+        <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>
+          {navigation[language].map((item) => (
+            <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
-        <a
-          href="#pricing"
-          className="rounded-full bg-emerald-400 px-4 py-2 text-xs font-semibold text-black transition hover:bg-emerald-300 sm:px-5 sm:text-[13px]"
+        <button
+          className="language-switch"
+          type="button"
+          onClick={onToggleLanguage}
+          aria-label={isPersian ? "Switch to English" : "تغییر زبان به فارسی"}
         >
-          Get Protected
-        </a>
+          EN <span aria-hidden="true">↔</span> فارسی
+        </button>
       </div>
     </header>
   );

@@ -45,7 +45,7 @@ export function SiteHeader({
           </span>
           <span>
             <span className="wordmark-name">Nima Dehghan</span>
-            <span className="wordmark-role">{isPersian ? "بک‌اند .NET · بینایی ماشین" : ".NET Backend · Computer Vision"}</span>
+            <span className="wordmark-role">{isPersian ? ".NET Backend Developer · Computer Vision" : ".NET Backend · Computer Vision"}</span>
           </span>
         </a>
         <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>

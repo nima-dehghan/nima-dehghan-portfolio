@@ -9,6 +9,8 @@
   --cyan: #38a6ff;
   --line: rgba(255, 255, 255, 0.14);
   --muted: rgba(247, 249, 252, 0.72);
+  --header-surface: rgba(19, 38, 63, 0.85); 
+  --surface-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -71,7 +73,7 @@ summary:focus-visible {
   z-index: 50;
   inset: 0 0 auto;
   border-bottom: 1px solid var(--surface-border);
-  background: var(--surface);
+  background: var(--header-surface);
 }
 .header-inner {
   display: flex;
@@ -567,7 +569,7 @@ body {
 
 .portfolio-header {
   border-bottom-color: var(--surface-border);
-  background: var(--surface);
+  background: var(--header-surface);
 }
 
 .header-inner {

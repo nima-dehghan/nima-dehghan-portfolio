@@ -506,16 +506,12 @@ summary:focus-visible {
   font-size: 0.7rem;
 }
 [dir="rtl"] body {
-  font-family:
-    Vazirmatn-Light,
-    sans-serif;
+  font-family: Vazirmatn-Light, sans-serif;
 }
 
 [dir="rtl"] .portfolio-shell,
 [dir="rtl"] .portfolio-shell * {
-  font-family:
-    Vazirmatn-Light,
-    sans-serif;
+  font-family: Vazirmatn-Light, sans-serif;
 }
 
 [dir="rtl"] .portfolio-header,
@@ -829,9 +825,7 @@ body {
 }
 
 [dir="rtl"] body {
-  font-family:
-    Vazirmatn-Light,
-    sans-serif;
+  font-family: Vazirmatn-Light, sans-serif;
 }
 
 [dir="rtl"] .hero-name,
@@ -1238,7 +1232,6 @@ main > .content-section {
 
 .site-footer {
   margin-block: 1.25rem 2.5rem;
-  margin-bottom: 2.5rem;
   padding-block: 1rem 1.5rem;
   padding-inline: clamp(1rem, 4vw, 2.5rem);
   border: 1px solid var(--surface-border);
@@ -1260,4 +1253,7 @@ main > .content-section {
     margin-block: 1rem;
     margin-bottom: 1.5rem;
   }
+}
+main {
+  padding-bottom: 5px;
 }

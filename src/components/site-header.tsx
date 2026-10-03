@@ -59,7 +59,7 @@ export function SiteHeader({
           onClick={onToggleLanguage}
           aria-label={isPersian ? "تغییر زبان به انگلیسی" : "Switch to Persian"}
         >
-          {isPersian ? "EN" : "FA"}
+          {isPersian ? "English" : "فارسی"}
         </button>
       </div>
     </header>

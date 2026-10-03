@@ -1,11 +1,11 @@
-import { ScanFace } from "lucide-react";
+import Image from "next/image";
 import type { Language } from "@/components/portfolio-experience";
 
 const navigation = {
   en: [
     { href: "#backend", label: ".NET Backend" },
     { href: "#frontend", label: "Web Frontend" },
-    { href: "#mobile", label: "Mobile" },
+    { href: "#mobile", label: "Mobile & Desktop" },
     { href: "#research", label: "Research" },
     { href: "#interests", label: "Interests" },
     { href: "#contact", label: "Connect" },
@@ -13,7 +13,7 @@ const navigation = {
   fa: [
     { href: "#backend", label: "بک‌اند دات‌نت" },
     { href: "#frontend", label: "فرانت‌اند وب" },
-    { href: "#mobile", label: "موبایل" },
+    { href: "#mobile", label: "موبایل و دسکتاپ" },
     { href: "#research", label: "پژوهش" },
     { href: "#interests", label: "علاقه‌مندی‌ها" },
     { href: "#contact", label: "ارتباط" },
@@ -33,7 +33,16 @@ export function SiteHeader({
     <header className="portfolio-header">
       <div className="header-inner">
         <a href="#top" className="wordmark" aria-label={isPersian ? "نیما دهقان، خانه" : "Nima Dehghan, home"}>
-          <span className="wordmark-mark"><ScanFace size={19} strokeWidth={1.7} /></span>
+          <span className="wordmark-mark">
+            <Image
+              src="/profile.png"
+              alt=""
+              width={38}
+              height={38}
+              className="wordmark-profile-image"
+              priority
+            />
+          </span>
           <span>
             <span className="wordmark-name">Nima Dehghan</span>
             <span className="wordmark-role">{isPersian ? "بک‌اند .NET · بینایی ماشین" : ".NET Backend · Computer Vision"}</span>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const FRAME_COUNT = 300;
+const FRAME_COUNT = 20;
 const FRAME_PAD = 3;
 const frameSrc = (i: number) =>
   `/image-split/ezgif-frame-${String(i).padStart(FRAME_PAD, "0")}.png`;

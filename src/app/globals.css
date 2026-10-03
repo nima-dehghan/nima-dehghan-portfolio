@@ -52,6 +52,14 @@ summary:focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 4px;
 }
+
+@font-face {
+  font-family: "Vazirmatn-Light";
+  src: url("/fonts/Vazirmatn-Light.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 .portfolio-shell {
   --page-gutter: clamp(1.25rem, 5vw, 5rem);
   position: relative;
@@ -85,13 +93,23 @@ summary:focus-visible {
   width: 38px;
   aspect-ratio: 1;
   place-items: center;
-  border: 1px solid var(--blue);
+  border: 0;
+  outline: none;
+  padding: 0;
+  background: transparent;
   color: var(--cyan);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.82rem;
-  box-shadow:
-    0 0 18px rgba(0, 168, 255, 0.2),
-    inset 0 0 14px rgba(0, 217, 255, 0.1);
+  box-shadow: none;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.wordmark-profile-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .wordmark-name {
   font-size: 0.88rem;
@@ -488,12 +506,16 @@ summary:focus-visible {
   font-size: 0.7rem;
 }
 [dir="rtl"] body {
-  font-family: var(--font-vazirmatn), sans-serif;
+  font-family:
+    Vazirmatn-Light,
+    sans-serif;
 }
 
 [dir="rtl"] .portfolio-shell,
 [dir="rtl"] .portfolio-shell * {
-  font-family: var(--font-vazirmatn), sans-serif;
+  font-family:
+    Vazirmatn-Light,
+    sans-serif;
 }
 
 [dir="rtl"] .portfolio-header,
@@ -557,7 +579,10 @@ body {
 }
 
 .wordmark-mark {
-  border-radius: 12px;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: none;
+  outline: none;
 }
 
 .language-switch,
@@ -804,7 +829,9 @@ body {
 }
 
 [dir="rtl"] body {
-  font-family: var(--font-vazirmatn), sans-serif;
+  font-family:
+    Vazirmatn-Light,
+    sans-serif;
 }
 
 [dir="rtl"] .hero-name,
@@ -858,7 +885,7 @@ body {
 
   .wordmark-mark {
     width: 34px;
-    border-radius: 10px;
+    border-radius: 50%;
   }
 
   .wordmark-name {
@@ -1210,7 +1237,9 @@ main > .content-section {
 }
 
 .site-footer {
-  margin-block: 1.25rem;
+  margin-block: 1.25rem 2.5rem;
+  margin-bottom: 2.5rem;
+  padding-block: 1rem 1.5rem;
   padding-inline: clamp(1rem, 4vw, 2.5rem);
   border: 1px solid var(--surface-border);
   border-radius: 14px;
@@ -1229,5 +1258,6 @@ main > .content-section {
 
   .site-footer {
     margin-block: 1rem;
+    margin-bottom: 1.5rem;
   }
 }

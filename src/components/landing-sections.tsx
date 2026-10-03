@@ -27,6 +27,8 @@ import {
   siDocker,
   siDotnet,
   siFlutter,
+  siGit,
+  siGithub,
   siJsonwebtokens,
   siLinux,
   siLinuxcontainers,
@@ -67,6 +69,8 @@ const technologyLogos: Record<string, SimpleIcon> = {
   Zod: siZod,
   "Lucide React": siLucide,
   Axios: siAxios,
+  Git: siGit,
+  GitHub: siGithub,
   Flutter: siFlutter,
   Dart: siDart,
   Unity: siUnity,
@@ -129,7 +133,7 @@ function TechChip({ skill }: { skill: string }) {
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/your-handle/" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/your-profile/" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/nima-dehghan-09b304426/" },
   { name: "YouTube", href: "https://www.youtube.com/@your-channel" },
   { name: "Threads", href: "https://www.threads.net/@your-handle" },
 ] as const;
@@ -203,7 +207,7 @@ const backendOperations = {
   fa: [{ title: "عملیات و کیفیت", skills: ["Swagger / OpenAPI", "Serilog", "SignalR", "Hangfire", "Testing", "Docker", "Docker Compose", "Nginx", "Linux Containers"] }],
 };
 
-const frontendSkills = ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "shadcn/ui", "Base UI", "TanStack Query", "Axios", "React Hook Form", "Zod", "next-intl", "Lucide React"];
+const frontendSkills = ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "shadcn/ui", "Base UI", "TanStack Query", "Axios", "React Hook Form", "Zod", "next-intl", "Lucide React", "Git", "GitHub"];
 const mobileSkills = ["Flutter", "Dart"];
 
 export function LandingSections({ language }: { language: Language }) {
@@ -216,7 +220,7 @@ export function LandingSections({ language }: { language: Language }) {
         researchCta: "مشاهدهٔ توسعهٔ بک‌اند",
         backendCta: "پیشینهٔ پژوهشی",
         readout: ["توسعهٔ بک‌اند .NET", "C# · ASP.NET Core", "پژوهش مکمل بینایی ماشین"],
-        researchIndex: "۰۴ / پیشینهٔ دانشگاهی",
+        researchIndex: "۰۴ / پیشینه علمی",
         researchTitle: "پژوهش و پیشینهٔ دانشگاهی",
         researchIntro: "علاقه‌مند به طراحی و بهبود روش‌های بینایی ماشین و کاربرد آن‌ها در مسائل واقعی هستم.",
         researchItems: [
@@ -250,9 +254,8 @@ export function LandingSections({ language }: { language: Language }) {
         footer: "نیما دهقان · توسعه‌دهندهٔ بک‌اند .NET · پژوهشگر بینایی ماشین",
         technology: "فناوری‌ها",
         contactIndex: "۰۵ / ارتباط",
-        contactTitle: "در ارتباط باشیم",
-        contactIntro: "برای گفت‌وگو دربارهٔ پژوهش، بینایی ماشین، رباتیک و مهندسی نرم‌افزار.",
-        contactNote: "پیوندهای شبکه‌های اجتماعی موقت هستند و بعداً به‌روزرسانی می‌شوند.",
+        contactTitle: "راه های ارتباطی با من",
+        contactNote: "",
         socialAction: "باز کردن",
       }
     : {
@@ -297,8 +300,7 @@ export function LandingSections({ language }: { language: Language }) {
         technology: "TECHNOLOGIES",
         contactIndex: "05 / CONNECT",
         contactTitle: "Let’s connect",
-        contactIntro: "For conversations about research, computer vision, robotics, and software engineering.",
-        contactNote: "Social links are temporary placeholders and will be updated.",
+        contactNote: "",
         socialAction: "Visit",
       };
 
@@ -311,6 +313,7 @@ export function LandingSections({ language }: { language: Language }) {
         "دستیار آموزشی و حل تمرین درس شبکه‌های عصبی برای دانشجویان کارشناسی ارشد در دورهٔ کارشناسی",
         "انجام چندین پروژهٔ دانشگاهی و نرم‌افزاری باکیفیت در دورهٔ کارشناسی",
         "ارائهٔ چندین سخنرانی فنی و دانشگاهی در دورهٔ کارشناسی",
+        "علاقه‌مند به یادگیری زبان‌های جدید",
         "کارشناسی علوم کامپیوتر",
       ]
     : [
@@ -321,6 +324,7 @@ export function LandingSections({ language }: { language: Language }) {
         "Teaching Assistant / Exercise Solver for a Master's Neural Networks course during BSc",
         "Completed multiple high-quality academic and software projects during BSc",
         "Delivered multiple technical and academic presentations during BSc",
+        "Interested in learning new languages",
         "BSc in Computer Science",
       ];
 
@@ -452,7 +456,6 @@ export function LandingSections({ language }: { language: Language }) {
             <span className="section-index">{copy.contactIndex}</span>
             <h2 className="section-title">{copy.contactTitle}</h2>
           </div>
-          <p className="section-intro">{copy.contactIntro}</p>
         </div>
         <div className="social-grid">
           {socialLinks.map(({ name, href }) => (
@@ -481,7 +484,7 @@ export function LandingSections({ language }: { language: Language }) {
             <ArrowUpRight className="social-arrow" size={16} aria-hidden="true" />
           </a>
         </div>
-        <p className="contact-note">{copy.contactNote}</p>
+        {copy.contactNote ? <p className="contact-note">{copy.contactNote}</p> : null}
         <a className="action-primary contact-back-to-top" href="#top">
           {isPersian ? "بازگشت به بالا" : "Back to top"}
           <ArrowUpRight size={16} />

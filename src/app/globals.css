@@ -9,7 +9,7 @@
   --cyan: #38a6ff;
   --line: rgba(255, 255, 255, 0.14);
   --muted: rgba(247, 249, 252, 0.72);
-  --header-surface: rgba(19, 38, 63, 0.85); 
+  --header-surface: rgba(19, 38, 63, 0.85);
   --surface-border: rgba(255, 255, 255, 0.1);
 }
 
@@ -258,7 +258,7 @@ summary:focus-visible {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.65rem;
 }
-.hero-readout span::before {
+.hero-readout > span::before {
   margin-inline-end: 0.55rem;
   color: var(--cyan);
   content: "+";
@@ -1114,7 +1114,7 @@ body {
 }
 
 .portfolio-sequence canvas {
-  filter: grayscale(1) brightness(0.5);
+  filter: grayscale(1) brightness(0.7);
 }
 
 main > .content-section {

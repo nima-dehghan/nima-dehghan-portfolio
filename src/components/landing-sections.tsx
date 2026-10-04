@@ -216,16 +216,21 @@ export function LandingSections({ language }: { language: Language }) {
 
   const DotNet = <span dir="ltr" style={{ unicodeBidi: 'isolate' }}>.NET</span>;
   const CSharp = <span dir="ltr" style={{ unicodeBidi: 'isolate' }}>C#</span>;
+  const AspNetCore = <span dir="ltr" style={{ unicodeBidi: 'isolate' }}>ASP.NET Core</span>;
+
 
   const copy = isPersian
     ? {
-        role: ( <> توسعه‌دهنده بک‌اند {DotNet} (با توانایی توسعه فول‌استک وب، موبایل و دسکتاپ) </>),
+        role: (<> توسعه‌دهنده بک‌اند {DotNet} (با توانایی توسعه فول‌استک وب، موبایل و دسکتاپ) </>),
         heading: "نیما دهقان",
-        summary:
-          "تعهد به کیفیت و مسئولیت‌پذیری، رکن اصلی کاری من در تمامی پروژه‌هاست. توسعه‌دهنده .NET با تمرکز بر طراحی زیرساخت‌های مقیاس‌پذیر و پایدار؛ دارای کارشناسی کامپیوتر (معدل ۱۸.۳/۲۰) و ۳ مقاله در حوزه بینایی ماشین، به‌همراه تجربه توسعه سرویس‌های فول‌ استک.",
+        summary: (
+          <>
+            تعهد به کیفیت و مسئولیت‌پذیری، رکن اصلی کاری من در تمامی پروژه‌هاست. توسعه‌دهنده {DotNet} با تمرکز بر طراحی زیرساخت‌های مقیاس‌پذیر و پایدار؛ دارای کارشناسی کامپیوتر (معدل ۱۸.۳/۲۰) و ۳ مقاله در حوزه بینایی ماشین، به‌همراه تجربه توسعه سرویس‌های فول‌ استک.
+          </>
+        ),
         researchCta: "مهارت‌های فنی",
         backendCta: "پیشینه علمی",
-        readout: [".NET", "C#", "ASP.NET Core"],
+        readout: [DotNet, CSharp, AspNetCore],
         researchIndex: "۰۴ / پیشینه علمی",
         researchTitle: "پژوهش و پیشینه دانشگاهی",
         researchIntro:
@@ -239,9 +244,13 @@ export function LandingSections({ language }: { language: Language }) {
         gpa: "معدل ۱۸٫۳ از ۲۰",
         paper: "سه مقاله پژوهشی در دست داوری هستند و هنوز منتشر نشده‌اند.",
         backendIndex: "۰۱ / تمرکز حرفه‌ای",
-        backendTitle: "توسعه بک‌اند با .NET",
-        backendIntro:
-          "تمرکز حرفه‌ای من ساخت APIها و سرویس‌های بک‌اند با C# و ASP.NET Core است؛ با توجه به معماری روشن، امنیت و نگهداشت‌پذیری.",
+        backendTitle: (<>توسعه بک‌اند با {DotNet}</>),
+        backendIntro: (
+          <>
+            تمرکز حرفه‌ای من ساخت APIها و سرویس‌های بک‌اند با {CSharp} و {AspNetCore} است؛ با توجه به معماری روشن، امنیت و نگهداشت‌پذیری.
+          </>
+        ),
+
         coreTitle: "پشته اصلی بک‌اند",
         coreCopy: "ابزارهای اصلی مورد استفاده در پروژه‌های بک‌اند من.",
         implementationIndex: "پیاده‌سازی بک‌اند",
@@ -269,7 +278,7 @@ export function LandingSections({ language }: { language: Language }) {
         creativeTitle: "تجربه کار با ابزارهای جانبی",
         creativeCopy:
           "آشنایی‌های تکمیلی؛ در اولویت پایین‌تر از پژوهش و توسعه بک‌اند.",
-        footer: "نیما دهقان · توسعه‌دهنده بک‌اند .NET",
+        footer: (<>نیما دهقان · توسعه‌دهنده بک‌اند {DotNet}</>),
         technology: "فناوری‌ها",
         contactIndex: "۶ / ارتباط",
         contactTitle: "راه های ارتباطی با من",
@@ -283,7 +292,7 @@ export function LandingSections({ language }: { language: Language }) {
           "Commitment to quality and responsibility is a core principle of my work across all projects. .NET Developer focused on designing scalable and reliable backend infrastructure; B.Sc. in Computer Science (GPA 18.3/20), with three Computer Vision research papers and experience developing full-stack services.",
         researchCta: "Technical Skills",
         backendCta: "Academic Background",
-        readout: [".NET", "C#", "ASP.NET Core"],
+        readout: [DotNet, CSharp, AspNetCore],
         researchIndex: "04 / ACADEMIC BACKGROUND",
         researchTitle: "Research & Academic Background",
         researchIntro:
@@ -434,8 +443,8 @@ export function LandingSections({ language }: { language: Language }) {
           </div>
 
           <div className="hero-readout">
-            {copy.readout.map((item) => (
-              <span key={item}>{item}</span>
+            {copy.readout.map((item, index) => (
+              <span key={index}>{item}</span>
             ))}
           </div>
         </div>

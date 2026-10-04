@@ -361,7 +361,7 @@ export function LandingSections({ language }: { language: Language }) {
         creativeTitle: "Experience with Supporting Tools",
         creativeCopy:
           "Additional technical experience, kept secondary to research and backend development.",
-        footer: "Nima Dehghan · .NET Backend Developer",
+        footer: "Nima Dehghan · .NET Backend Developer & Computer Vision Researcher",
         technology: "TECHNOLOGIES",
         contactIndex: "06 / CONNECT",
         contactTitle: "Ways to Connect",

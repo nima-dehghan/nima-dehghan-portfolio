@@ -190,6 +190,23 @@ summary:focus-visible {
   content: "";
   box-shadow: 0 0 10px var(--cyan);
 }
+
+.research-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--foreground);
+}
+
+.research-eyebrow::before {
+  width: 24px;
+  height: 1px;
+  background: var(--cyan);
+  content: "";
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+
 .hero-name {
   margin: 1.2rem 0 0;
   font-size: 5.5rem;
@@ -458,6 +475,27 @@ summary:focus-visible {
   padding-block: 2rem;
   border-top: 1px solid var(--line);
 }
+
+/* .supporting-skills-eyebrow {
+  width: min(100% - 2 * var(--page-gutter), 1280px);
+  margin-inline: auto;
+  padding-inline: clamp(1.15rem, 4vw, 3.5rem);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.supporting-skills-eyebrow .eyebrow {
+  font-size: 1.5rem;
+  color: white;
+} */
+
+.supporting-skills-eyebrow .eyebrow {
+  font-size: 1.5rem;
+  color: white;
+}
+
+
+
 .support-section h2 {
   margin: 0.65rem 0 0.7rem;
   font-size: 1.55rem;

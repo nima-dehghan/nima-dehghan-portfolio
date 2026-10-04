@@ -45,7 +45,15 @@ export function SiteHeader({
           </span>
           <span>
             <span className="wordmark-name">Nima Dehghan</span>
-            <span className="wordmark-role">{isPersian ? ".NET Backend Developer · Computer Vision" : ".NET Backend · Computer Vision"}</span>
+            <span className="wordmark-role">
+            {isPersian ? (
+              <>
+                <span dir="ltr" style={{ unicodeBidi: "isolate", display: "inline-block" }}>.NET Backend Developer & Computer Vision</span>
+              </>
+            ) : (
+              ".NET Backend Developer & Computer Vision"
+            )}
+          </span>
           </span>
         </a>
         <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>
@@ -54,13 +62,18 @@ export function SiteHeader({
           ))}
         </nav>
         <button
-          className="language-switch"
-          type="button"
-          onClick={onToggleLanguage}
-          aria-label={isPersian ? "تغییر زبان به انگلیسی" : "Switch to Persian"}
-        >
-          {isPersian ? "English" : "فارسی"}
-        </button>
+        className="language-switch"
+        type="button"
+        onClick={onToggleLanguage}
+        aria-label={isPersian ? "تغییر زبان به انگلیسی" : "Switch to Persian"}
+      >
+        {isPersian ? (
+          "English"
+        ) : (
+          <span style={{ fontWeight: 300 }}>فارسی</span>
+        )}
+      </button>
+
       </div>
     </header>
   );

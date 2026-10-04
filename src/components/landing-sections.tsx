@@ -33,6 +33,7 @@ import {
   siLinux,
   siLinuxcontainers,
   siLucide,
+  siRos,
   siNginx,
   siReact,
   siReacthookform,
@@ -80,6 +81,8 @@ const technologyLogos: Record<string, SimpleIcon> = {
   Nginx: siNginx,
   Linux: siLinux,
   "Linux Containers": siLinuxcontainers,
+  "Linux Environment (Ubuntu/WSL)": siLinux,
+  "Robotics Simulation (ROS2, Gazebo)": siRos,
 };
 
 const technologyConceptIcons: Record<string, LucideIcon> = {
@@ -99,6 +102,8 @@ const technologyConceptIcons: Record<string, LucideIcon> = {
   CapCut: Video,
   "Next.js 16": Code2,
   "next-intl": Languages,
+  "AI Prompt Engineering": Braces,
+  "AI-Driven Multimedia Generation (Image, Video, Audio)": Layers3,
 };
 
 function TechnologyIcon({ technology }: { technology: string }) {
@@ -221,7 +226,7 @@ export function LandingSections({ language }: { language: Language }) {
 
   const copy = isPersian
     ? {
-        role: (<> توسعه‌دهنده بک‌اند {DotNet} (با توانایی توسعه فول‌استک وب، موبایل و دسکتاپ) </>),
+        role: (<> توسعه‌دهنده بک‌اند {DotNet} </>),
         heading: "نیما دهقان",
         summary: (
           <>
@@ -250,6 +255,8 @@ export function LandingSections({ language }: { language: Language }) {
             تمرکز حرفه‌ای من ساخت APIها و سرویس‌های بک‌اند با {CSharp} و {AspNetCore} است؛ با توجه به معماری روشن، امنیت و نگهداشت‌پذیری.
           </>
         ),
+
+        supportingSkillsEyebrow: "مهارت‌های تکمیلی در صورت نیاز",
 
         coreTitle: "پشته اصلی بک‌اند",
         coreCopy: "ابزارهای اصلی مورد استفاده در پروژه‌های بک‌اند من.",
@@ -286,7 +293,7 @@ export function LandingSections({ language }: { language: Language }) {
         socialAction: "باز کردن",
       }
     : {
-        role: ".NET Backend Developer (with Full-Stack Web, Mobile & Desktop Development Capabilities)",
+        role: ".NET Backend Developer",
         heading: "Nima Dehghan",
         summary:
           "Commitment to quality and responsibility is a core principle of my work across all projects. .NET Developer focused on designing scalable and reliable backend infrastructure; B.Sc. in Computer Science (GPA 18.3/20), with three Computer Vision research papers and experience developing full-stack services.",
@@ -322,6 +329,8 @@ export function LandingSections({ language }: { language: Language }) {
         backendTitle: ".NET Backend Development",
         backendIntro:
           "My professional focus is building backend APIs and services with C# and ASP.NET Core, with an emphasis on clear architecture, security, and maintainability.",
+        
+        supportingSkillsEyebrow: "Supporting skills when needed",
         coreTitle: "Core Backend Stack",
         coreCopy:
           "The primary technologies I use across my backend projects.",
@@ -429,7 +438,9 @@ export function LandingSections({ language }: { language: Language }) {
               ? (<>توسعه‌دهنده بک‌اند {DotNet} (با توانایی توسعه فول‌استک)</>)
               : ".NET Backend Developer (with Full-Stack Development Capabilities)"}
           </p>
-          <p className="hero-summary">{copy.summary}</p>
+          <p className="hero-summary" style={{ textAlign: "justify" }}>
+            {copy.summary}
+          </p>
 
           <div className="hero-actions">
             <a className="action-primary" href="#backend">
@@ -511,6 +522,11 @@ export function LandingSections({ language }: { language: Language }) {
         </div>
       </section>
 
+
+      <div className="supporting-skills-eyebrow">
+        <span className="eyebrow">{copy.supportingSkillsEyebrow}</span>
+      </div>
+
       <section id="frontend" className="content-section supporting-section">
         <div className="section-heading">
           <div>
@@ -569,7 +585,9 @@ export function LandingSections({ language }: { language: Language }) {
 
         <ul className="research-points">
           {researchPoints.map((point) => (
-            <li key={point}>{point}</li>
+            <li key={point}>
+              <span className="research-eyebrow">{point}</span>
+            </li>
           ))}
         </ul>
       </section>

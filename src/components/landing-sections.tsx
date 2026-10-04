@@ -137,10 +137,10 @@ function TechChip({ skill }: { skill: string }) {
 }
 
 const socialLinks = [
-  { name: "Instagram", href: "https://www.instagram.com/your-handle/" },
-  { name: "LinkedIn", href: "https://www.linkedin.com/in/nima-dehghan-09b304426/" },
-  { name: "YouTube", href: "https://www.youtube.com/@your-channel" },
-  { name: "Threads", href: "https://www.threads.net/@your-handle" },
+  { name: "Instagram", href: "https://www.instagram.com/nima.dehghan.banadaki" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/nima-dehghan-09b304426" },
+  { name: "YouTube", href: "https://www.youtube.com/@nima-dehghan-banadaki" },
+  { name: "Threads", href: "https://www.threads.com/nima.dehghan.banadaki" },
 ] as const;
 
 type SocialPlatform = "Instagram" | "LinkedIn" | "YouTube" | "Threads" | "X";
@@ -523,9 +523,9 @@ export function LandingSections({ language }: { language: Language }) {
       </section>
 
 
-      <div className="supporting-skills-eyebrow">
+      <section className="content-section supporting-skills-eyebrow">
         <span className="eyebrow">{copy.supportingSkillsEyebrow}</span>
-      </div>
+      </section>
 
       <section id="frontend" className="content-section supporting-section">
         <div className="section-heading">
@@ -648,7 +648,7 @@ export function LandingSections({ language }: { language: Language }) {
 
           <a
             className="social-link"
-            href="https://x.com/your-handle"
+            href="https://x.com/NimaDehghanB"
             target="_blank"
             rel="noreferrer"
             aria-label={`X — ${copy.socialAction}`}

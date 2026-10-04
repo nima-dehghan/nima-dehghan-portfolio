@@ -130,9 +130,40 @@ summary:focus-visible {
   color: var(--muted);
   font-size: 0.76rem;
 }
+
 .primary-nav a,
 .text-link {
   transition: color 180ms ease;
+}
+
+.primary-nav a:hover,
+.text-link:hover {
+  color: var(--cyan);
+}
+
+/* Responsive navigation */
+@media (max-width: 1050px) {
+  .primary-nav .nav-item-2 {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .primary-nav .nav-item-3 {
+    display: none;
+  }
+}
+
+@media (max-width: 780px) {
+  .primary-nav .nav-item-5 {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .primary-nav .nav-item-4 {
+    display: none;
+  }
 }
 .primary-nav a:hover,
 .text-link:hover {
@@ -1152,7 +1183,7 @@ body {
 }
 
 .portfolio-sequence canvas {
-  filter: grayscale(1) brightness(0.7);
+  filter: brightness(0.5);
 }
 
 main > .content-section {

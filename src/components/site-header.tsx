@@ -57,9 +57,15 @@ export function SiteHeader({
           </span>
         </a>
         <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>
-          {navigation[language].map((item) => (
-            <a key={item.href} href={item.href}>{item.label}</a>
-          ))}
+          {navigation[language].map((item, index) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className={`nav-item nav-item-${index + 1}`}
+          >
+            {item.label}
+          </a>
+        ))}
         </nav>
         <button
         className="language-switch"

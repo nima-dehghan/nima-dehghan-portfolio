@@ -46,15 +46,21 @@ export function SiteHeader({
           </span>
           <span>
             <span className="wordmark-name">Nima Dehghan</span>
-            <span className="wordmark-role">
-            {isPersian ? (
-              <>
-                <span dir="ltr" style={{ unicodeBidi: "isolate", display: "inline-block" }}>.NET Backend Developer & Computer Vision Researcher</span>
-              </>
-            ) : (
-              ".NET Backend Developer & Computer Vision Researcher"
-            )}
-          </span>
+            <span
+              className="wordmark-role"
+              dir="ltr"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "flex-start",
+                textAlign: "left",
+                gap: "2px",
+                lineHeight: 1.15,
+              }}
+            >
+              <span>.NET Backend Developer</span>
+              <span>Computer Vision Researcher</span>
+            </span>
           </span>
         </a>
         <nav className="primary-nav" aria-label={isPersian ? "پیمایش اصلی" : "Main navigation"}>

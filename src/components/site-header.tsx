@@ -49,10 +49,10 @@ export function SiteHeader({
             <span className="wordmark-role">
             {isPersian ? (
               <>
-                <span dir="ltr" style={{ unicodeBidi: "isolate", display: "inline-block" }}>.NET Backend Developer & Computer Vision</span>
+                <span dir="ltr" style={{ unicodeBidi: "isolate", display: "inline-block" }}>.NET Backend Developer & Computer Vision Researcher</span>
               </>
             ) : (
-              ".NET Backend Developer & Computer Vision"
+              ".NET Backend Developer & Computer Vision Researcher"
             )}
           </span>
           </span>

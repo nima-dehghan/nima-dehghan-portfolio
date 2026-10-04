@@ -4,8 +4,11 @@ import { useEffect, useRef } from "react";
 
 const FRAME_COUNT = 20;
 const FRAME_PAD = 3;
+const BASE_PATH = "/nima-dehghan-portfolio";
+
 const frameSrc = (i: number) =>
-  `/image-split/ezgif-frame-${String(i).padStart(FRAME_PAD, "0")}.png`;
+  `${BASE_PATH}/image-split/ezgif-frame-${String(i).padStart(FRAME_PAD, "0")}.png`;
+
 
 export function ScrollSequence({ children }: { children: React.ReactNode }) {
   const rootRef = useRef<HTMLDivElement>(null);

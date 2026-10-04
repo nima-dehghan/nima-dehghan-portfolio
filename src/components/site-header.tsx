@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Language } from "@/components/portfolio-experience";
+import profilePic from "@/../public/profile.png";
 
 const navigation = {
   en: [
@@ -35,7 +36,7 @@ export function SiteHeader({
         <a href="#top" className="wordmark" aria-label={isPersian ? "نیما دهقان، خانه" : "Nima Dehghan, home"}>
           <span className="wordmark-mark">
             <Image
-              src="/profile.png"
+              src={profilePic}
               alt=""
               width={38}
               height={38}

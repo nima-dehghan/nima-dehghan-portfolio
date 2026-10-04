@@ -57,10 +57,11 @@ summary:focus-visible {
 
 @font-face {
   font-family: "Vazirmatn-Light";
-  src: url("/fonts/Vazirmatn-Light.ttf") format("truetype");
+  src: url("/nima-dehghan-portfolio/fonts/Vazirmatn-Light.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
 }
+
 
 .portfolio-shell {
   --page-gutter: clamp(1.25rem, 5vw, 5rem);

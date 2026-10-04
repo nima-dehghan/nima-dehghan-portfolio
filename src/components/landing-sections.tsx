@@ -131,10 +131,13 @@ function TechChip({ skill }: { skill: string }) {
   return (
     <span className="tech-chip">
       <TechnologyIcon technology={skill} />
-      <span>{skill}</span>
+      <span dir="ltr" style={{ unicodeBidi: "isolate" }}>
+        {skill}
+      </span>
     </span>
   );
 }
+
 
 const socialLinks = [
   { name: "Instagram", href: "https://www.instagram.com/nima.dehghan.banadaki" },
@@ -287,7 +290,7 @@ export function LandingSections({ language }: { language: Language }) {
           "آشنایی‌های تکمیلی؛ در اولویت پایین‌تر از پژوهش و توسعه بک‌اند.",
         footer: (<>نیما دهقان · توسعه‌دهنده بک‌اند {DotNet}</>),
         technology: "فناوری‌ها",
-        contactIndex: "۶ / ارتباط",
+        contactIndex: "۰۶ / ارتباط",
         contactTitle: "راه های ارتباطی با من",
         contactNote: "",
         socialAction: "باز کردن",

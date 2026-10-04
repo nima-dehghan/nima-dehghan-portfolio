@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: "Nima Dehghan | .NET Backend Developer",
   description:
     ".NET backend development with C# and ASP.NET Core by Nima Dehghan, with complementary Computer Vision research.",
+  icons: {
+    icon: "/profile.ico",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

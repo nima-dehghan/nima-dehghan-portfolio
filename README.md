@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### ❤️ Support & Connect / حمایت و ارتباط
 
-## Getting Started
+Hi there! 👋  
+I built this portfolio template using **Next.js** and **React** with a lot of care, and decided to share it open-source for the developer community.  
+If you find this project helpful, gave you some inspiration, or you just want to support my journey, I’d be genuinely grateful if you could connect with me or give this repo a ⭐️!
 
-First, run the development server:
+- 💼 **LinkedIn:** [Nima Dehghan](https://www.linkedin.com/in/nima-dehghan-09b304426) — Let's network and discuss tech & development!
+- 📸 **Instagram:** [@nima.dehghan.banadaki](https://www.instagram.com/nima.dehghan.banadaki) — Behind-the-scenes, daily dev life & personal updates.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+سلام رفقا! 👋  
+این پورتفولیو حاصل تلاش و علاقه‌ام به توسعه تمیز با **React** و **Next.js** هست که تصمیم گرفتم به‌صورت کاملاً رایگان و متن‌باز (Open Source) با شما به اشتراک بذارم تا شاید برای بقیه هم کاربردی باشه.  
+اگر براتون مفید بود، ازش ایده گرفتید یا دوست داشتید از کارهای بعدی من حمایت کنید، خیلی خوشحالم می‌کنید اگه با دنبال کردن شبکه‌های اجتماعی یا دادن یک ستاره (⭐️) به پروژه همراهم باشید:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 💼 **لینکدین:** [نیما دهقان (LinkedIn)](https://www.linkedin.com/in/nima-dehghan-09b304426) — برای ارتباط کاری، انتقال تجربه و گپ‌های فنی.
+- 📸 **اینستاگرام:** [nima.dehghan.banadaki@](https://www.instagram.com/nima.dehghan.banadaki) — روند یادگیری، پشت‌صحنه‌ها و فعالیت‌های روزمره.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ممنون از انرژی مثبت و نگاه گرمتون! 🤍

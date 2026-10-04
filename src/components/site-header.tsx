@@ -45,7 +45,7 @@ export function SiteHeader({
             />
           </span>
           <span>
-            <span className="wordmark-name">Nima Dehghan</span>
+            <span className="wordmark-name">{isPersian ? "نیما دهقان" : "Nima Dehghan"}</span>
             <span
               className="wordmark-role"
               dir="ltr"

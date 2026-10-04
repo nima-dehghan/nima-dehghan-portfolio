@@ -380,7 +380,6 @@ export function LandingSections({ language }: { language: Language }) {
         "دستیار آموزشی (TA) درس شبکه‌های عصبی برای مقطع کارشناسی‌ارشد",
         "ارائه سخنرانی‌های فنی و تخصصی در مجامع دانشگاهی و سازمانی",
         "انجام چندین پروژه دانشگاهی و نرم‌افزاری باکیفیت در دوره کارشناسی",
-        "ارائه چندین سخنرانی فنی و دانشگاهی در دوره کارشناسی",
         "برنامه‌ریزی برای ادامه پژوهش در مقاطع تکمیلی (بینایی ماشین)",
       ]
     : [
@@ -390,7 +389,6 @@ export function LandingSections({ language }: { language: Language }) {
         "Teaching Assistant (TA) for a Master's-level Neural Networks course",
         "Delivered technical and specialized presentations in academic and organizational settings",
         "Completed multiple high-quality academic and software projects during the B.Sc.",
-        "Delivered multiple technical and academic presentations during the B.Sc.",
         "Planning to continue research at graduate level in Computer Vision",
       ];
 

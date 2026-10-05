@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Language } from "@/components/portfolio-experience";
-import profilePic from "@/../public/profile.png";
+import profilePic from "@/../public/profile.webp";
 
 const navigation = {
   en: [
